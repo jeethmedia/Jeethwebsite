@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeeth Media Network — Natural Crystal Jewellery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --obsidian:#191220;
+    --obsidian-2:#221A2B;
+    --lavender-pale:#EDE9F2;
+    --lavender-pale-2:#E4DEED;
+    --amethyst:#7C5CBF;
+    --amethyst-deep:#5B3F94;
+    --rose-quartz:#E3A9B0;
+    --citrine:#CBA135;
+    --ink:#1B1420;
+    --paper:#F4F0F8;
+    --muted:#9186A0;
+    --muted-dark:#B7AFC6;
+    --line: rgba(244,240,248,0.14);
+    --line-dark: rgba(27,20,32,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope', sans-serif;
+    background:var(--obsidian);
+    color:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--rose-quartz);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--rose-quartz); display:inline-block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(25,18,32,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces', serif; font-size:19px; font-weight:600;}
+  .brand-mark{
+    width:30px; height:30px; border-radius:50%;
+    background:conic-gradient(from 210deg, var(--amethyst), var(--rose-quartz), var(--citrine), var(--amethyst));
+    flex-shrink:0;
+  }
+  .navlinks{display:flex; gap:26px; list-style:none; font-size:14px; color:var(--muted-dark);}
+  .navlinks a{text-decoration:none; transition:color .2s ease;}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--paper);}
+  .navlinks{display:none;}
+  @media(min-width:820px){.navlinks{display:flex;}}
+  .nav-cta{
+    font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:.04em;
+    background:var(--amethyst); color:#fff; padding:9px 16px; border-radius:999px;
+    text-decoration:none; border:1px solid transparent; white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--amethyst-deep);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--citrine); outline-offset:3px;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 76px; position:relative; overflow:hidden;}
+  .hero::before{
+    content:''; position:absolute; top:-160px; right:-160px; width:480px; height:480px;
+    background:radial-gradient(circle, rgba(124,92,191,0.35), transparent 70%);
+    filter:blur(10px); pointer-events:none;
+  }
+  .hero-grid{display:grid; grid-template-columns:1fr; gap:48px; align-items:center; position:relative;}
+  @media(min-width:880px){.hero-grid{grid-template-columns:1.1fr 0.9fr;}}
+  .hero h1{font-size:clamp(34px,5.4vw,54px); line-height:1.06; margin:18px 0 20px; color:var(--paper);}
+  .hero h1 em{font-style:italic; color:var(--rose-quartz); font-weight:500;}
+  .hero p.lede{color:var(--muted-dark); font-size:16.5px; max-width:46ch; margin-bottom:30px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:'Manrope'; font-weight:600; font-size:14.5px;
+    padding:13px 24px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--citrine); color:var(--ink);}
+  .btn-primary:hover{transform:translateY(-1px); background:#DDB44A;}
+  .btn-ghost{border:1px solid var(--line); color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--rose-quartz); color:var(--rose-quartz);}
+
+  /* Gem illustration */
+  .gem-wrap{position:relative; display:flex; align-items:center; justify-content:center;}
+  .gem-card{
+    background:var(--obsidian-2); border:1px solid var(--line); border-radius:20px;
+    padding:36px; width:100%; max-width:340px;
+  }
+  .gem-svg{width:100%; height:auto;}
+
+  /* ---------- CERT SECTION LABEL ---------- */
+  .section{padding:76px 0;}
+  .section-light{background:var(--lavender-pale); color:var(--ink);}
+  .section-light .eyebrow{color:var(--amethyst-deep);}
+  .section-light .eyebrow::before{background:var(--amethyst-deep);}
+  .section h2{font-size:clamp(26px,3.6vw,36px); margin:14px 0 10px;}
+  .section-light h2{color:var(--ink);}
+  .section p.intro{max-width:60ch; color:var(--muted-dark); margin-bottom:8px;}
+  .section-light p.intro{color:#5A5266;}
+
+  /* ---------- PRODUCT ---------- */
+  .product-card{
+    background:var(--obsidian-2); border:1px solid var(--line); border-radius:20px;
+    display:grid; grid-template-columns:1fr; overflow:hidden; margin-top:40px;
+  }
+  @media(min-width:760px){.product-card{grid-template-columns:0.85fr 1.15fr;}}
+  .product-visual{
+    background:radial-gradient(circle at 30% 20%, rgba(227,169,176,0.25), transparent 60%), var(--amethyst-deep);
+    display:flex; align-items:center; justify-content:center; padding:40px; min-height:260px;
+  }
+  .product-info{padding:36px 38px;}
+  .product-info h3{font-size:24px; margin-bottom:6px;}
+  .price{font-family:'Space Mono'; font-size:20px; color:var(--citrine); margin:10px 0 18px;}
+  .spec-list{list-style:none; font-size:14px; color:var(--muted-dark); margin-bottom:26px;}
+  .spec-list li{padding:7px 0; border-bottom:1px dashed var(--line); display:flex; justify-content:space-between;}
+  .spec-list li span:first-child{color:var(--muted);}
+
+  /* ---------- CERT CARDS (policies) ---------- */
+  .cert-grid{display:grid; grid-template-columns:1fr; gap:20px; margin-top:34px;}
+  .cert{
+    background:#fff; border:1px solid var(--line-dark); border-radius:16px; padding:30px 32px;
+    position:relative;
+  }
+  .cert-num{
+    font-family:'Space Mono'; font-size:12px; letter-spacing:.08em; color:var(--amethyst-deep);
+    display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .cert-num .dot{width:7px; height:7px; border-radius:50%; background:var(--rose-quartz); display:inline-block;}
+  .cert h3{font-size:21px; color:var(--ink); margin-bottom:14px;}
+  .cert p, .cert li{color:#4B4456; font-size:14.5px; margin-bottom:10px;}
+  .cert ul{padding-left:20px; margin-bottom:14px;}
+  .cert strong{color:var(--ink);}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:36px;}
+  @media(min-width:700px){.contact-grid{grid-template-columns:repeat(3,1fr);}}
+  .contact-item{
+    background:var(--obsidian-2); border:1px solid var(--line); border-radius:16px; padding:24px;
+  }
+  .contact-item .label{font-family:'Space Mono'; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--rose-quartz); margin-bottom:10px; display:block;}
+  .contact-item .val{font-size:15.5px; color:var(--paper);}
+  .placeholder{color:var(--citrine); font-style:italic;}
+
+  footer{border-top:1px solid var(--line); padding:36px 0; color:var(--muted); font-size:13px;}
+  .footer-row{display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; align-items:center;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; list-style:none;}
+  .footer-links a{text-decoration:none; color:var(--muted);}
+  .footer-links a:hover{color:var(--rose-quartz);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand"><span class="brand-mark" aria-hidden="true"></span>Jeeth Media Network</a>
+    <ul class="navlinks">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#terms">Terms</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#shipping">Shipping</a></li>
+      <li><a href="#refunds">Refunds</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="https://wa.me/910000000000" target="_blank" rel="noopener">Order on WhatsApp</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Handpicked · Natural Stone</span>
+        <h1>Crystals, chosen<br>for what they <em>carry</em>.</h1>
+        <p class="lede">Jeeth Media Network sources and hand-strings natural crystal bracelets — ordered over WhatsApp, verified over UPI, delivered to your door.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#shop">View the bracelet</a>
+          <a class="btn btn-ghost" href="https://wa.me/910000000000" target="_blank" rel="noopener">Chat on WhatsApp →</a>
+        </div>
+      </div>
+      <div class="gem-wrap">
+        <div class="gem-card">
+          <svg class="gem-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#E3A9B0"/>
+                <stop offset="55%" stop-color="#7C5CBF"/>
+                <stop offset="100%" stop-color="#CBA135"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#g1)" stroke-width="1.4">
+              <circle cx="100" cy="100" r="70"/>
+              <circle cx="100" cy="100" r="52" stroke-opacity="0.8"/>
+              <circle cx="100" cy="100" r="34" stroke-opacity="0.6"/>
+              <circle cx="100" cy="100" r="16" stroke-opacity="0.4"/>
+            </g>
+            <g fill="url(#g1)">
+              <circle cx="100" cy="30" r="6"/>
+              <circle cx="164" cy="65" r="5"/>
+              <circle cx="164" cy="135" r="4.5"/>
+              <circle cx="100" cy="170" r="6"/>
+              <circle cx="36" cy="135" r="4.5"/>
+              <circle cx="36" cy="65" r="5"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section id="shop" class="section wrap">
+    <span class="eyebrow">The Collection</span>
+    <h2>Crystal Bracelet</h2>
+    <p class="intro">One product, made with care. Genuine natural crystal beads, strung and quality-checked before it reaches you.</p>
+
+    <div class="product-card">
+      <div class="product-visual">
+        <svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="70" cy="70" r="55" fill="none" stroke="#F4F0F8" stroke-opacity="0.5" stroke-width="1.2" stroke-dasharray="2 7"/>
+          <g fill="#F4F0F8">
+            <circle cx="70" cy="18" r="9"/>
+            <circle cx="109" cy="31" r="9"/>
+            <circle cx="122" cy="70" r="9"/>
+            <circle cx="109" cy="109" r="9"/>
+            <circle cx="70" cy="122" r="9"/>
+            <circle cx="31" cy="109" r="9"/>
+            <circle cx="18" cy="70" r="9"/>
+            <circle cx="31" cy="31" r="9"/>
+          </g>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3>Natural Crystal Bracelet</h3>
+        <div class="price">₹699</div>
+        <ul class="spec-list">
+          <li><span>Material</span><span>Natural crystal stones</span></li>
+          <li><span>Sizing</span><span>Free size, elastic cord</span></li>
+          <li><span>Payment</span><span>UPI via Razorpay / WhatsApp</span></li>
+          <li><span>Dispatch</span><span>1–2 business days</span></li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/910000000000?text=Hi%2C%20I%27m%20interested%20in%20the%20Crystal%20Bracelet" target="_blank" rel="noopener">Order via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section-light">
+    <div class="wrap">
+      <span class="eyebrow">Who we are</span>
+      <h2>About Jeeth Media Network</h2>
+      <p class="intro">We're a small, WhatsApp-first jewellery business. You message us, we confirm your order and details, you pay securely, and your bracelet ships. No app to download, no account to create — just a conversation and a QR code.</p>
+    </div>
+  </section>
+
+  <!-- POLICIES -->
+  <section class="section wrap">
+    <span class="eyebrow">The Fine Print</span>
+    <h2>Policies &amp; Terms</h2>
+    <p class="intro">Everything you're agreeing to when you order from us, laid out plainly — no legal maze.</p>
+
+    <div class="cert-grid">
+
+      <article id="terms" class="cert">
+        <div class="cert-num"><span class="dot"></span>CERT NO. 01 — TERMS OF SERVICE</div>
+        <h3>Terms &amp; Conditions</h3>
+        <p>By placing an order with Jeeth Media Network through WhatsApp or our website, you agree to the following terms.</p>
+        <ul>
+          <li>All products listed are subject to availability. If an item is out of stock after you order, we'll notify you on WhatsApp and offer a refund or alternative.</li>
+          <li>Prices are listed in Indian Rupees (INR) and are inclusive of applicable taxes unless stated otherwise.</li>
+          <li>An order is confirmed only after payment is verified through our payment gateway (Razorpay/UPI).</li>
+          <li>Product images are representative — natural crystals vary slightly in colour, pattern, and size, which is part of their character, not a defect.</li>
+          <li>We reserve the right to refuse or cancel any order in cases of suspected fraud or error in pricing.</li>
+        </ul>
+        <p>For any questions about these terms, reach out via the contact details below.</p>
+      </article>
+
+      <article id="privacy" class="cert">
+        <div class="cert-num"><span class="dot"></span>CERT NO. 02 — DATA HANDLING</div>
+        <h3>Privacy Policy</h3>
+        <p>We collect only what's needed to fulfil your order and communicate with you.</p>
+        <ul>
+          <li><strong>What we collect:</strong> your name, phone number, delivery address, and order details, shared by you via WhatsApp during checkout.</li>
+          <li><strong>Payment data:</strong> handled entirely by Razorpay. We do not store your card, UPI, or banking details on our own systems.</li>
+          <li><strong>How we use it:</strong> solely to process, deliver, and support your order, and to send order-related updates on WhatsApp.</li>
+          <li><strong>Sharing:</strong> we do not sell or rent your personal information. Data is shared only with our delivery partners and payment gateway, strictly to complete your order.</li>
+          <li><strong>Your rights:</strong> you can request a copy of your data, or ask us to delete it, by contacting us directly.</li>
+        </ul>
+      </article>
+
+      <article id="shipping" class="cert">
+        <div class="cert-num"><span class="dot"></span>CERT NO. 03 — DELIVERY TERMS</div>
+        <h3>Shipping Policy</h3>
+        <ul>
+          <li><strong>Processing time:</strong> orders are dispatched within 1–2 business days of payment confirmation.</li>
+          <li><strong>Delivery time:</strong> typically 3–7 business days depending on your location within India.</li>
+          <li><strong>Shipping charges:</strong> included in the listed price unless otherwise communicated at checkout.</li>
+          <li><strong>Tracking:</strong> a tracking link or courier update is shared with you on WhatsApp once your order ships.</li>
+          <li><strong>Delays:</strong> in rare cases of courier delays or serviceability issues, we'll inform you proactively and offer a resolution.</li>
+        </ul>
+      </article>
+
+      <article id="refunds" class="cert">
+        <div class="cert-num"><span class="dot"></span>CERT NO. 04 — CANCELLATIONS &amp; REFUNDS</div>
+        <h3>Cancellation &amp; Refund Policy</h3>
+        <ul>
+          <li><strong>Cancellation window:</strong> orders can be cancelled free of charge before they are dispatched. Message us on WhatsApp to cancel.</li>
+          <li><strong>After dispatch:</strong> once shipped, orders cannot be cancelled, but may be eligible for return (see below).</li>
+          <li><strong>Damaged or incorrect items:</strong> if your bracelet arrives damaged or different from what you ordered, let us know within 48 hours of delivery with photos, and we'll arrange a replacement or full refund.</li>
+          <li><strong>Refund method:</strong> approved refunds are credited back to your original payment method via Razorpay within 5–7 business days.</li>
+          <li><strong>Non-returnable:</strong> we don't accept returns for change of mind, given the handmade and made-to-order nature of each piece, unless the item is defective.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-light">
+    <div class="wrap">
+      <span class="eyebrow">Reach Us</span>
+      <h2>Contact Us</h2>
+      <p class="intro">Questions about an order, a product, or anything else — we're a message away.</p>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="label">WhatsApp</span>
+          <span class="val placeholder">[Add your WhatsApp business number]</span>
+        </div>
+        <div class="contact-item">
+          <span class="label">Email</span>
+          <span class="val placeholder">[Add your support email]</span>
+        </div>
+        <div class="contact-item">
+          <span class="label">Business Address</span>
+          <span class="val placeholder">[Add your registered business address]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Jeeth Media Network. All rights reserved.</span>
+    <ul class="footer-links">
+      <li><a href="#terms">Terms</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#shipping">Shipping</a></li>
+      <li><a href="#refunds">Refunds</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
