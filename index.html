@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shreechakra | Shreechakra Product</title>
+<title>Jeeth Astrology Solution</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --obsidian:#191220;
-    --obsidian-2:#221A2B;
+    --obsidian:#FBF9FD;
+    --obsidian-2:#FFFFFF;
     --lavender-pale:#EDE9F2;
     --lavender-pale-2:#E4DEED;
     --amethyst:#7C5CBF;
     --amethyst-deep:#5B3F94;
-    --rose-quartz:#E3A9B0;
-    --citrine:#CBA135;
+    --rose-quartz:#C1748C;
+    --citrine:#A9791B;
     --ink:#1B1420;
-    --paper:#F4F0F8;
-    --muted:#9186A0;
-    --muted-dark:#B7AFC6;
-    --line: rgba(244,240,248,0.14);
+    --paper:#211829;
+    --muted:#8C8496;
+    --muted-dark:#5A5266;
+    --line: rgba(27,20,32,0.12);
     --line-dark: rgba(27,20,32,0.12);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -49,23 +49,25 @@
   /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(25,18,32,0.86);
+    background:rgba(251,249,253,0.88);
     backdrop-filter: blur(10px);
     border-bottom:1px solid var(--line);
+    box-shadow:0 1px 0 rgba(27,20,32,0.03);
   }
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
     padding-top:18px; padding-bottom:18px;
   }
-  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces', serif; font-size:19px; font-weight:600;}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces', serif; font-size:19px; font-weight:600; color:var(--ink);}
   .brand-mark{
     width:30px; height:30px; border-radius:50%;
     background:conic-gradient(from 210deg, var(--amethyst), var(--rose-quartz), var(--citrine), var(--amethyst));
     flex-shrink:0;
+    box-shadow:0 2px 8px rgba(124,92,191,0.35);
   }
   .navlinks{display:flex; gap:26px; list-style:none; font-size:14px; color:var(--muted-dark);}
   .navlinks a{text-decoration:none; transition:color .2s ease;}
-  .navlinks a:hover, .navlinks a:focus-visible{color:var(--paper);}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--amethyst-deep);}
   .navlinks{display:none;}
   @media(min-width:820px){.navlinks{display:flex;}}
   .nav-cta{
@@ -80,13 +82,13 @@
   .hero{padding:88px 0 76px; position:relative; overflow:hidden;}
   .hero::before{
     content:''; position:absolute; top:-160px; right:-160px; width:480px; height:480px;
-    background:radial-gradient(circle, rgba(124,92,191,0.35), transparent 70%);
+    background:radial-gradient(circle, rgba(124,92,191,0.16), transparent 70%);
     filter:blur(10px); pointer-events:none;
   }
   .hero-grid{display:grid; grid-template-columns:1fr; gap:48px; align-items:center; position:relative;}
   @media(min-width:880px){.hero-grid{grid-template-columns:1.1fr 0.9fr;}}
-  .hero h1{font-size:clamp(34px,5.4vw,54px); line-height:1.06; margin:18px 0 20px; color:var(--paper);}
-  .hero h1 em{font-style:italic; color:var(--rose-quartz); font-weight:500;}
+  .hero h1{font-size:clamp(34px,5.4vw,54px); line-height:1.06; margin:18px 0 20px; color:var(--ink);}
+  .hero h1 em{font-style:italic; color:var(--amethyst-deep); font-weight:500;}
   .hero p.lede{color:var(--muted-dark); font-size:16.5px; max-width:46ch; margin-bottom:30px;}
   .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
   .btn{
@@ -94,9 +96,9 @@
     padding:13px 24px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
     transition:transform .15s ease, background .2s ease;
   }
-  .btn-primary{background:var(--citrine); color:var(--ink);}
-  .btn-primary:hover{transform:translateY(-1px); background:#DDB44A;}
-  .btn-ghost{border:1px solid var(--line); color:var(--paper);}
+  .btn-primary{background:var(--citrine); color:#fff;}
+  .btn-primary:hover{transform:translateY(-1px); background:#8F6614;}
+  .btn-ghost{border:1px solid var(--line-dark); color:var(--ink);}
   .btn-ghost:hover{border-color:var(--rose-quartz); color:var(--rose-quartz);}
 
   /* Gem illustration */
@@ -104,6 +106,7 @@
   .gem-card{
     background:var(--obsidian-2); border:1px solid var(--line); border-radius:20px;
     padding:36px; width:100%; max-width:340px;
+    box-shadow:0 20px 40px -20px rgba(91,63,148,0.25);
   }
   .gem-svg{width:100%; height:auto;}
 
@@ -112,7 +115,7 @@
   .section-light{background:var(--lavender-pale); color:var(--ink);}
   .section-light .eyebrow{color:var(--amethyst-deep);}
   .section-light .eyebrow::before{background:var(--amethyst-deep);}
-  .section h2{font-size:clamp(26px,3.6vw,36px); margin:14px 0 10px;}
+  .section h2{font-size:clamp(26px,3.6vw,36px); margin:14px 0 10px; color:var(--ink);}
   .section-light h2{color:var(--ink);}
   .section p.intro{max-width:60ch; color:var(--muted-dark); margin-bottom:8px;}
   .section-light p.intro{color:#5A5266;}
@@ -121,14 +124,15 @@
   .product-card{
     background:var(--obsidian-2); border:1px solid var(--line); border-radius:20px;
     display:grid; grid-template-columns:1fr; overflow:hidden; margin-top:40px;
+    box-shadow:0 24px 48px -28px rgba(91,63,148,0.28);
   }
   @media(min-width:760px){.product-card{grid-template-columns:0.85fr 1.15fr;}}
   .product-visual{
-    background:radial-gradient(circle at 30% 20%, rgba(227,169,176,0.25), transparent 60%), var(--amethyst-deep);
+    background:radial-gradient(circle at 30% 20%, rgba(227,169,176,0.28), transparent 60%), var(--amethyst-deep);
     display:flex; align-items:center; justify-content:center; padding:40px; min-height:260px;
   }
   .product-info{padding:36px 38px;}
-  .product-info h3{font-size:24px; margin-bottom:6px;}
+  .product-info h3{font-size:24px; margin-bottom:6px; color:var(--ink);}
   .price{font-family:'Space Mono'; font-size:20px; color:var(--citrine); margin:10px 0 18px;}
   .spec-list{list-style:none; font-size:14px; color:var(--muted-dark); margin-bottom:26px;}
   .spec-list li{padding:7px 0; border-bottom:1px dashed var(--line); display:flex; justify-content:space-between;}
@@ -139,6 +143,7 @@
   .cert{
     background:#fff; border:1px solid var(--line-dark); border-radius:16px; padding:30px 32px;
     position:relative;
+    box-shadow:0 12px 30px -22px rgba(27,20,32,0.35);
   }
   .cert-num{
     font-family:'Space Mono'; font-size:12px; letter-spacing:.08em; color:var(--amethyst-deep);
@@ -155,6 +160,7 @@
   @media(min-width:700px){.contact-grid{grid-template-columns:repeat(3,1fr);}}
   .contact-item{
     background:var(--obsidian-2); border:1px solid var(--line); border-radius:16px; padding:24px;
+    box-shadow:0 10px 26px -20px rgba(27,20,32,0.3);
   }
   .contact-item .label{font-family:'Space Mono'; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--rose-quartz); margin-bottom:10px; display:block;}
   .contact-item .val{font-size:15.5px; color:var(--paper);}
@@ -188,7 +194,7 @@
 
 <header>
   <nav class="wrap">
-    <a href="#top" class="brand"><span class="brand-mark" aria-hidden="true"></span>Shreechakra</a>
+    <a href="#top" class="brand"><span class="brand-mark" aria-hidden="true"></span>Jeeth Media Network</a>
     <ul class="navlinks">
       <li><a href="#shop">Shop</a></li>
       <li><a href="#about">About</a></li>
@@ -259,19 +265,7 @@
           alt="Shreechakra Product"
           class="product-image"
         >
-        <svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="70" cy="70" r="55" fill="none" stroke="#F4F0F8" stroke-opacity="0.5" stroke-width="1.2" stroke-dasharray="2 7"/>
-          <g fill="#F4F0F8">
-            <circle cx="70" cy="18" r="9"/>
-            <circle cx="109" cy="31" r="9"/>
-            <circle cx="122" cy="70" r="9"/>
-            <circle cx="109" cy="109" r="9"/>
-            <circle cx="70" cy="122" r="9"/>
-            <circle cx="31" cy="109" r="9"/>
-            <circle cx="18" cy="70" r="9"/>
-            <circle cx="31" cy="31" r="9"/>
-          </g>
-        </svg>
+       
       </div>
       <div class="product-info">
         <h3>Shreechakra Product</h3>
@@ -374,15 +368,15 @@
       <div class="contact-grid">
         <div class="contact-item">
           <span class="label">WhatsApp</span>
-          <span class="val placeholder">+91 9148905338</span>
+          <span class="val placeholder">+91 9148905338 <br>+91 9741403526</span>
         </div>
         <div class="contact-item">
           <span class="label">Email</span>
-          <span class="val placeholder">REPLACE WITH YOUR REAL BUSINESS EMAIL</span>
+          <span class="val placeholder">jeethmedia98@gmail.com</span>
         </div>
         <div class="contact-item">
           <span class="label">Business Address</span>
-          <span class="val placeholder">Shreechakra<br>2nd Floor, No. 3, Poornima Kutira<br>6th Cross, Chikkalasandra<br>Bengaluru, Karnataka – 560060         </span>
+          <span class="val placeholder">Jeeth Astrology Solution,<br>2nd Floor, No. 3, Poornima Kutira<br>6th Cross, Chikkalasandra<br>Bengaluru, Karnataka – 560060         </span>
         </div>
       </div>
     </div>
